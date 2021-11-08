@@ -254,6 +254,8 @@ public class GameController : Singleton<GameController>
     void CheckGameOver(){
         if(activePlayer.transform.position.y < -10f){
             GameOver();
+        }else if(activePlayer.CheckStuck()){ // possible fix to getting stuck above obstacle, just as a safeguard past the prefab change
+            GameOver();
         }
     }
 
@@ -291,7 +293,7 @@ public class GameController : Singleton<GameController>
 
     void SetScore(int newScore){
         score = newScore;
-        scoreText.text = score.ToString("00");
+        scoreText.text = score.ToString();
     }
 
     public void GameOver()
@@ -322,9 +324,12 @@ public class GameController : Singleton<GameController>
     public void RestartGame(int score = 0, float speed = -1f)
     {
         isGameOver = false;
+        RemoveClones();
 
         SetScore(score);
         menuControl.SetShowMenu(false);
+
+        aestheticGenerator.Reset();
 
         activePlayer.transform.position = playerStartPosition;
         activePlayer.rigid.velocity = Vector2.zero;

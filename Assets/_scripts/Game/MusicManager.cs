@@ -5,7 +5,7 @@ using UnityEngine;
 public class MusicManager : MonoBehaviour
 {
     AudioSource source;
-    public float volume = 0.75f;
+    public float volume = 0.3f;
 
     void Start(){
         source = GetComponent<AudioSource>();

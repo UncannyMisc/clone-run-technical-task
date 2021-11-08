@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
 
     public bool canBeDestroyed = false;
 
+    bool possibleStuck = false;
+    float counterForStuck = 0f;
     float counterForLiving = 0f;
     float minTimeBeforeAlive = 0.08f;
 
@@ -62,6 +64,10 @@ public class Player : MonoBehaviour
             }
         }else if(minTimeBeforeAlive > counterForLiving){
             counterForLiving += Time.deltaTime;
+        }
+
+        if(possibleStuck&&counterForStuck<=2){
+            counterForStuck+=Time.deltaTime;
         }
 
         previousSqrVelocity = rigid.velocity.sqrMagnitude;
@@ -97,7 +103,13 @@ public class Player : MonoBehaviour
                     Studios.Utils.SoundManager.PlayClip(landClip, 0.3f);
                 }
             }
+        }else{
+            possibleStuck = true;
         }
+    }
+    void OnCollisionExit2D(Collision2D col){
+            possibleStuck = false;
+            counterForStuck = 0;
     }
 
     void CheckDestroy(){
@@ -137,6 +149,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    public bool CheckStuck(){
+
+        return possibleStuck&&(counterForStuck >= 1.5f);
+    }
     public void SetActivePlayer(bool b){
         isActivePlayer = b;
 

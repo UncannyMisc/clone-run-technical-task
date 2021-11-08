@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.65
+  m_fontSize: 70.5
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2042,6 +2042,9 @@ MonoBehaviour:
   sizeRange: {x: 0.1, y: 4}
   rotationRange: {x: -45, y: 45}
   creationRangeBounds: {x: 4, y: 8}
+  currentCreationRange: 0
+  travelledDistance: 0
+  lastLocation: 0
 --- !u!4 &689978982
 Transform:
   m_ObjectHideFlags: 0
@@ -2220,7 +2223,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 98.5
+  m_fontSize: 95.55
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2863,7 +2866,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.65
+  m_fontSize: 70.5
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3339,7 +3342,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.65
+  m_fontSize: 70.5
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -3644,7 +3647,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.65
+  m_fontSize: 70.5
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -4434,7 +4437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d78219137ac49d7a088ff953f62bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  volume: 0.6
+  volume: 0.3
 --- !u!82 &1605380838
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4447,7 +4450,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2475bcff5b5eb44dd8c7798b09233fcd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4778,7 +4781,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72.65
+  m_fontSize: 70.5
   m_fontSizeBase: 145
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5095,7 +5098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.003921569}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

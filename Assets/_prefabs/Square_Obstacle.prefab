@@ -228,6 +228,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square_Platform (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189771, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlatformSide
+      objectReference: {fileID: 0}
     - target: {fileID: 8955765385200189774, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
         type: 3}
       propertyPath: m_RootOrder
@@ -345,6 +350,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8955765385200189769, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
         type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189769, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
       propertyPath: m_SortingOrder
       value: 5
       objectReference: {fileID: 0}
@@ -352,6 +362,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Square_Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189771, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189771, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     - target: {fileID: 8955765385200189774, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
         type: 3}
@@ -483,6 +503,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Square_Platform
       objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189771, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlatformSide
+      objectReference: {fileID: 0}
     - target: {fileID: 8955765385200189774, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
         type: 3}
       propertyPath: m_RootOrder
@@ -607,6 +632,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Square_Platform (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8955765385200189771, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
+        type: 3}
+      propertyPath: m_TagString
+      value: PlatformSide
       objectReference: {fileID: 0}
     - target: {fileID: 8955765385200189774, guid: 1b9cdacbeac2645d5b497fe8d8d0077d,
         type: 3}

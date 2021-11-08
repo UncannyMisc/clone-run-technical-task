@@ -14,19 +14,27 @@ public class AestheticGenerator : Singleton<AestheticGenerator>
     public Vector2 rotationRange;
 
     public Vector2 creationRangeBounds;
-    float currentCreationRange;
-    float travelledDistance;
-    float lastLocation;
 
-    List<GameObject> aestheticSquares = new List<GameObject>();
+    [SerializeField]
+    private float currentCreationRange;
+    [SerializeField]
+    private float travelledDistance;
+    [SerializeField]
+    private float lastLocation;
+
+    //TODO, would be better to have a pool of these and recycle them
+    Queue<GameObject> aestheticSquares = new Queue<GameObject>();
     float aestheticBehindToRegenDistance = 15f;
 
+    bool reset = false;
+
     void Start(){
-        currentCreationRange = Random.Range(creationRangeBounds.x, creationRangeBounds.y);
+        Reset();
     }
 
     void Update(){
-        if(activePlayer == null){
+        if(activePlayer == null||reset){
+            reset = false;
             return;
         }
 
@@ -50,7 +58,7 @@ public class AestheticGenerator : Singleton<AestheticGenerator>
         currentCreationRange = Random.Range(creationRangeBounds.x, creationRangeBounds.y);
 
         GameObject newAesthetic = GameObject.Instantiate(aestheticPrefab);
-        aestheticSquares.Add(newAesthetic);
+        aestheticSquares.Enqueue(newAesthetic);
         newAesthetic.transform.SetParent(transform);
         newAesthetic.transform.position = new Vector3(lastLocation + xDistanceInFront, Random.Range(yRange.x, yRange.y), 0f);
 
@@ -65,15 +73,16 @@ public class AestheticGenerator : Singleton<AestheticGenerator>
     {
         for(int i = 0; i < aestheticSquares.Count; i++)
         {
-            if(aestheticSquares[i].transform.position.x < (activePlayer.transform.position.x - aestheticBehindToRegenDistance))
+            if(aestheticSquares.Peek().transform.position.x < (activePlayer.transform.position.x - aestheticBehindToRegenDistance))
             {
-                Destroy(aestheticSquares[i]);
-                aestheticSquares.RemoveAt(i);
+                GameObject lastsquare = aestheticSquares.Dequeue();
+                Destroy(lastsquare);
             }
         }
 
     }
 
+    // this needs to be hooked up to the gameover screen
     public IEnumerator CleanAllAestheticSquaresAfterDelay(float delay = 0.35f)
     {
         yield return new WaitForSeconds(delay);
@@ -83,16 +92,23 @@ public class AestheticGenerator : Singleton<AestheticGenerator>
 
     void CleanAllAestheticSquares()
     {
-        for (int i = 0; i < aestheticSquares.Count; i++)
-        {
-            Destroy(aestheticSquares[i]);
-            aestheticSquares.RemoveAt(i);
+        while(aestheticSquares.Count>0){
+            GameObject lastsquare = aestheticSquares.Dequeue();
+            Destroy(lastsquare);
         }
     }
 
     public void SetActivePlayer(Player p){
         activePlayer = p;
         lastLocation = activePlayer.transform.position.x;
+    }
+
+    public void Reset(){
+        reset = true;
+        CleanAllAestheticSquares();
+        lastLocation = 0;
+        travelledDistance = 0;
+        currentCreationRange = Random.Range(creationRangeBounds.x, creationRangeBounds.y);
     }
 
 }

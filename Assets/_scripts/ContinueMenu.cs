@@ -8,7 +8,7 @@ public class ContinueMenu : MonoBehaviour
 {
     [SerializeField] MenuControl menuControlRef_;
 
-    float rewardTime = (20f + 5f);
+    float rewardTime = (7f + 5f);
     float rewardTimer;
 
     [SerializeField] TextMeshProUGUI timerText;
@@ -26,7 +26,7 @@ public class ContinueMenu : MonoBehaviour
         continueScore = score;
         continueSpeed = speed;
 
-        timerText.text = Mathf.CeilToInt(rewardTimer).ToString("N0");
+        timerText.text = Mathf.CeilToInt(rewardTimer).ToString();
         timerImage.fillClockwise = !timerImage.fillClockwise;
 
         buttonPressed = false;
@@ -41,7 +41,7 @@ public class ContinueMenu : MonoBehaviour
         if (!isActive) return;
 
         rewardTimer -= Time.deltaTime;
-        timerText.text = Mathf.CeilToInt(rewardTimer).ToString("N0");
+        timerText.text = Mathf.CeilToInt(rewardTimer).ToString();
 
         timerImage.fillAmount = rewardTimer / rewardTime;
 
@@ -57,6 +57,15 @@ public class ContinueMenu : MonoBehaviour
         buttonPressed = true;
 
         menuControlRef_.SetShowMenu(true);
+
+        isActive = false;
+    }
+    public void HandleYesButtonPressed()
+    {
+        if (buttonPressed) return;
+        buttonPressed = true;
+
+        menuControlRef_.ContinueGame();
 
         isActive = false;
     }
